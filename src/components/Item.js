@@ -6,8 +6,6 @@ class Item extends Component {
     index: React.PropTypes.number.isRequired,
     text: React.PropTypes.string.isRequired,
     complete: React.PropTypes.bool,
-    onCompleteItem: React.PropTypes.func.isRequired,
-    onRemoveItem: React.PropTypes.func.isRequired
   }
 
   doubleClicking = false
@@ -15,14 +13,14 @@ class Item extends Component {
   clickHandler = () => {
     setTimeout(() => {
       if (!this.doubleClicking) {
-        this.props.onCompleteItem(this.props.index)
+        this.props.completeItem(this.props.index)
       }
     }, 200)
   }
 
   doubleClickHandler = () => {
     this.doubleClicking = true
-    this.props.onRemoveItem(this.props.index)
+    this.props.removeItem(this.props.index)
   }
 
   render () {
